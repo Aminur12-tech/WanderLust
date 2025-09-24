@@ -1,0 +1,143 @@
+/* body{
+    background-color:rgb(193, 253, 253);
+}
+ */
+
+/* navbar */
+
+
+.navbar{
+    height: 100%;
+    background-color: #fcebeb;
+}
+
+.navbar-brand i{
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222 !important;
+}
+
+.nav-link:hover{
+    color: #fe424d !important;
+} 
+/* index */
+
+
+h3{
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 !important;
+}
+
+.row a{
+    text-decoration: none;
+}
+
+.card{
+    margin: 0.2rem;
+    padding: 0px;
+    border: none !important;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.4;
+    font-size: 3rem;
+    background-color: #fff;
+    color: #222;
+}
+.card-img-top{
+    width: 100% !important;
+    height: 18rem;
+    border-radius: 0.5rem !important; 
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* footer */
+
+footer{
+    background-color: rgb(248, 251, 253);
+}
+
+.f-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-top: 1px solid #a1b2d6;
+    padding: 10px;
+}
+
+.f-info-social a{
+    /* text-decoration: ; */
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+.f-info-social a:nth-child(1){
+    color: blue;
+}
+.f-info-social a:nth-child(2){
+    color: rgb(0, 0, 0);
+}
+.f-info-social a:nth-child(3){
+    color: rgb(252, 23, 130);
+}
+
+.f-info-links a{
+    margin: 5px;
+    text-decoration: none;
+    color: #222;
+
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+
+/* show */
+
+.btn{
+    display: flex !important;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.edit-btn{
+    background-color: #fe424d !important;
+    color: #fff !important;
+    border: none !important;
+}
+/* 
+review */
+.review-card{
+    border: 1px solid rgb(185, 173, 173) !important;
+    border-radius: 10px;
+}
+
+
+
+
+

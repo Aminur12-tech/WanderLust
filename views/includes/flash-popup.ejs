@@ -1,0 +1,37 @@
+<% if (success && success.length) { %>
+  <div class="alert alert-success alert-dismissible fade show mt-3" role="alert" id="flash-message"
+    style="font-weight: 600; font-size: 1.25rem;">
+    <%= success[0] %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <script>
+    // Auto-dismiss flash message after 4 seconds
+    setTimeout(() => {
+      const flashMessage = document.getElementById('flash-message');
+      if (flashMessage) {
+        const alert = new bootstrap.Alert(flashMessage);
+        alert.close();
+      }
+    }, 4000);
+  </script>
+  <% } %>
+
+    <% if (error && error.length) { %>
+      <div class="alert alert-error fade show mt-3" role="alert" id="flash-message"
+        style="font-weight: 600; font-size: 1.25rem; background-color: rgb(253, 188, 188);display: flex; justify-content: space-between;">
+        <%= error[0] %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <script>
+        // Auto-dismiss flash message after 4 seconds
+        setTimeout(() => {
+          const flashMessage = document.getElementById('flash-message');
+          if (flashMessage) {
+            const alert = new bootstrap.Alert(flashMessage);
+            alert.close();
+          }
+        }, 4000);
+      </script>
+      <% } %>
