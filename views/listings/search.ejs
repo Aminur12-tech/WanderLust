@@ -104,8 +104,7 @@
         <%= success %>
 
             <div class="container">
-                <!-- <h3>All listings</h3> -->
-                <div id="filters">
+                <div id="filters" class="filters-container">
                     <div class="filter mt-5">
                         <a href="/listings/category/Trending">
                             <i class="fa-solid fa-fire"></i>
@@ -169,7 +168,7 @@
                 </div>
 
                 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-                    <% for( let listing of allListings){ %>
+                    <% for( let listing of searchListings){ %>
                         <a href="/listings/<%= listing._id%>">
                             <div class="card" style="width: 20rem; height: 25rem;">
                                 <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">

@@ -7,7 +7,7 @@
                 <h3>Edit Your Listing</h3>
 
                 <!-- Make sure this uses _method=PUT for method-override -->
-                <form method="POST" action="/listings/<%= listing._id %>">
+                <form method="POST" action="/listings/<%= listing._id %>" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="PUT">
                     <div>
                         <label for="title">Title:</label>
@@ -20,32 +20,26 @@
                         <textarea name="listing[description]" id="description" rows="5" cols="30"
                             class="form-control"><%= listing.description %></textarea><br><br>
                     </div>
+                    <div class="mb-3">
+                        Original Listing Image<br>
+                        <img src="<%= originalImage %>" width="200px">
+                    </div>
                     <div>
-
-                        <label for="imageUrl">Image URL:</label>
-                        <input type="url" name="listing[image][url]" id="imageUrl" value="<%= listing.image.url %>"
+                        <label for="imageUrl">Upload New Image:</label>
+                        <input type="file" name="listing[image]"
                             class="form-control"><br><br>
                     </div>
                     <div>
-
-                        <label for="imageFilename">Image Filename:</label>
-                        <input type="text" name="listing[image][filename]" id="imageFilename"
-                            value="<%= listing.image.filename %>" class="form-control"><br><br>
-                    </div>
-                    <div>
-
                         <label for="price">Price:</label>
                         <input type="number" name="listing[price]" id="price" value="<%= listing.price %>"
                             class="form-control"><br><br>
                     </div>
                     <div>
-
                         <label for="location">Location:</label>
                         <input type="text" name="listing[location]" id="location" value="<%= listing.location %>"
                             class="form-control"><br><br>
                     </div>
                     <div>
-
                         <label for="country">Country:</label>
                         <input type="text" name="listing[country]" id="country" value="<%= listing.country %>"
                             class="form-control"><br><br>

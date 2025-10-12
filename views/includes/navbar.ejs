@@ -1,27 +1,35 @@
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><i class="fa-solid fa-compass-drafting"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" >
-        <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand" href="/istings"><i class="fa-solid fa-compass-drafting"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link"  href="/">Home</a>
+          <a class="nav-link" href="/listings">Explore</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/listings">All Listings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/listings/new">Add New Listing</a>
-        </li>
-        
-        
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <div class="navbar-nav me-auto">
+        <form class="d-flex" role="search" action="/listings/search" method="GET">
+          <input class="form-control me-2" type="search" name="country" placeholder="Search Location"
+            aria-label="Search" style="border-radius: 25px; text-align: center; width: 270px;" />
+          <button class="btn btn-search" type="submit"
+            style="border-radius: 50%; background-color: rgb(255, 107, 107); font-size: 1.3rem; display: flex; align-items: center;"><i
+              class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+        </form>
+      </div>
+      <div class="auth">
+        <a class="add-home me-auto" href="/listings/new">Add Your Home</a>
+        <% if(!currUser) { %>
+          <a href="/signup" class="signup"><b>SignUp</b></a>
+          <a href="/login" class="login"><b>Login</b></a>
+          <% } %>
+            <% if(currUser) { %>
+              <a href="/logout" class="logout"><b>Log out</b></a>
+              <% } %>
+      </div>
+
     </div>
   </div>
 </nav>

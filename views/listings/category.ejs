@@ -169,7 +169,7 @@
                 </div>
 
                 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-                    <% for( let listing of allListings){ %>
+                    <% for( let listing of categoryListings){ %>
                         <a href="/listings/<%= listing._id%>">
                             <div class="card" style="width: 20rem; height: 25rem;">
                                 <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
