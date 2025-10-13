@@ -7,11 +7,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/listings">Explore</a>
+          <a class="nav-link" href="/">Explore</a>
         </li>
       </ul>
       <div class="navbar-nav me-auto">
-        <form class="d-flex" role="search" action="/listings/search" method="GET">
+        <form class="d-flex" role="search" action="/search" method="GET">
           <input class="form-control me-2" type="search" name="country" placeholder="Search Location"
             aria-label="Search" style="border-radius: 25px; text-align: center; width: 270px;" />
           <button class="btn btn-search" type="submit"
@@ -20,7 +20,7 @@
         </form>
       </div>
       <div class="auth">
-        <a class="add-home me-auto" href="/listings/new">Add Your Home</a>
+        <a class="add-home me-auto" href="/new">Add Your Home</a>
         <% if(!currUser) { %>
           <a href="/signup" class="signup"><b>SignUp</b></a>
           <a href="/login" class="login"><b>Login</b></a>
