@@ -80,7 +80,7 @@ const listingRouter = require('./routes/listings.js');
 app.use("/", listingRouter);
 
 const reviewRouter = require('./routes/review.js');
-app.use("/listings/:id/reviews", reviewRouter);
+app.use("/:id/reviews", reviewRouter);
 
 const userRouter = require('./routes/user.js');
 app.use('/', userRouter);

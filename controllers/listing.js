@@ -27,7 +27,7 @@ module.exports.category = async (req, res) => {
 
     if (!validCategories.includes(normalizedCategory)) {
       req.flash("error", "Invalid category selected.");
-      return res.redirect("/listings");
+      return res.redirect("/");
     }
 
     const categoryListings = await Listing.find({ category: normalizedCategory });
@@ -35,7 +35,7 @@ module.exports.category = async (req, res) => {
   } catch (err) {
     console.error("Error fetching category listings:", err);
     req.flash("error", "Could not find listings for the specified category.");
-    res.redirect("/listings");
+    res.redirect("/");
   }
 };
 
@@ -45,25 +45,25 @@ module.exports.search = async (req, res) => {
 
   if (!country || country.trim() === "") {
     req.flash("error", "Please enter a valid location to search.");
-    res.redirect('/listings');
+    res.redirect('/');
     return;
   }
   try {
     const searchListings = await Listing.find({ country: country.trim() });
     if (searchListings.length === 0) {
       req.flash("error", "No listings found for the specified location.");
-      return res.redirect('/listings');
+      return res.redirect('/');
     }
     res.render('listings/search.ejs', { searchListings, country: country.trim() });
   } catch (err) {
     console.error("Search error: ", err);
     req.flash("error", "An error occured while searching. Please try again.");
-    res.redirect('/listings');
+    res.redirect('/');
   }
 };
 
 module.exports.newform = async (req, res) => {
-  res.render('listings/new.ejs');
+  res.render('/new.ejs');
 };
 
 module.exports.create = async (req, res) => {
@@ -97,7 +97,7 @@ module.exports.create = async (req, res) => {
   await newListing.save();
   console.log(newListing);
   req.flash('success', 'Listing is created successfully!');
-  res.redirect('/listings');
+  res.redirect('/');
 };
 
 module.exports.edit = async (req, res) => {
@@ -105,7 +105,7 @@ module.exports.edit = async (req, res) => {
   const listing = await Listing.findById(id);
   let originalImage = listing.image.url;
   originalImage.replace("/upload", "/upload/h_300,w_250");
-  res.render('listings/edit.ejs', { listing, originalImage });
+  res.render('/edit.ejs', { listing, originalImage });
 };
 
 module.exports.update = async (req, res) => {
@@ -120,7 +120,7 @@ module.exports.update = async (req, res) => {
     };
     await listing.save();
   }
-  res.redirect(`/listings/${id}`);
+  res.redirect(`/${id}`);
   console.log(req.method, req.url);
 };
 
@@ -146,7 +146,7 @@ module.exports.showUpdate = async (req, res) => {
 
     console.log("Updated Listing:", updatedListing);
     req.flash('success', 'Listing is updated successfully!');
-    res.redirect(`/listings/${id}`);
+    res.redirect(`/${id}`);
   } catch (err) {
     console.error("Update error:", err);
     res.status(500).send("Something went wrong during update.");
@@ -166,10 +166,10 @@ module.exports.show = async (req, res) => {
     .populate("owner");
   if (!listing) {
     req.flash("error", "Listing you requested for does not exist!");
-    res.redirect("/listings");
+    res.redirect("/");
   }
   console.log(listing);
-  res.render('listings/show.ejs', { listing });
+  res.render('/show.ejs', { listing });
 };
 
 
@@ -178,7 +178,7 @@ module.exports.delete = async (req, res) => {
   let deletedListing = await Listing.findByIdAndDelete(id);
   console.log(deletedListing);
   req.flash('success', 'Listing is deleted successfully!');
-  res.redirect('/listings');
+  res.redirect('/');
 };
 
 
