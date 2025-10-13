@@ -12,7 +12,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
 const DB_URL = process.env.ATLASDB_URL;
 
@@ -43,7 +42,7 @@ const store = MongoStore.create({
     touchAfter: 24 * 60 * 60,
 });
 
-store.on("error",() =>{
+store.on("error", () => {
     console.log("ERROR in MONGO SESSION STORE", err);
 })
 
