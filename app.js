@@ -77,13 +77,13 @@ app.use((req, res, next) => {
 });
 
 const listingRouter = require('./routes/listings.js');
-app.use("/", listingRouter);
+app.use("/listings", listingRouter);
 
 const reviewRouter = require('./routes/review.js');
-app.use("/:id/reviews", reviewRouter);
+app.use("/listings/:id/reviews", reviewRouter);
 
 const userRouter = require('./routes/user.js');
-app.use('/', userRouter);
+app.use('/listings', userRouter);
 
 app.listen(8000, () => {
     console.log('Server is running on port 8000');
