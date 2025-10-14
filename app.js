@@ -76,7 +76,7 @@ app.use((req, res, next) => {
     next();
 });
 
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.render('index');  // renders views/index.ejs
 });
 
