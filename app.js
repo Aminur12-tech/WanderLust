@@ -76,6 +76,9 @@ app.use((req, res, next) => {
     next();
 });
 
+const rootRouter = require('./routes/root.js');
+app.use("/", rootRouter);
+
 const listingRouter = require('./routes/listings.js');
 app.use("/listings", listingRouter);
 
