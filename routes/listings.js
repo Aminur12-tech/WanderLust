@@ -8,6 +8,7 @@ const upload = multer({ storage });
 const listingController = require('../controllers/listing.js');
 
 router.route('/')
+    .get(listingController.root)
     .get(listingController.index)
     .post(isloggedin, upload.single('listing[image]'), listingController.create);
 

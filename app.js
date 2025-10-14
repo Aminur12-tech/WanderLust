@@ -77,7 +77,7 @@ app.use((req, res, next) => {
 });
 
 const listingRouter = require('./routes/listings.js');
-app.use("/", listingRouter);
+app.use("/listings", listingRouter);
 
 const reviewRouter = require('./routes/review.js');
 app.use("/listings/:id/reviews", reviewRouter);
