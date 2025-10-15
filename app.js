@@ -11,7 +11,7 @@ const flash = require('connect-flash');
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
-
+const Listing = require("../models/listing");
 
 const DB_URL = process.env.ATLASDB_URL;
 
@@ -77,8 +77,9 @@ app.use((req, res, next) => {
 });
 
 
-app.get('/', (req, res) => {
-    res.render('listings/index', { allListings });
+app.get('/', async (req, res) => {
+    const allListings = await Listing.find({});
+    res.render("listings/index.js", { allListings });
 });
 
 
