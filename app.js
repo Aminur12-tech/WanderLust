@@ -78,8 +78,9 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('listings/index');
 });
+
 
 const listingRouter = require('./routes/listings.js');
 app.use("/listings", listingRouter);
