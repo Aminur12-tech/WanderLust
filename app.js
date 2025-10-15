@@ -77,7 +77,9 @@ app.use((req, res, next) => {
 });
 
 
-
+app.get('/', (req, res) => {
+    res.render('index');
+});
 
 const listingRouter = require('./routes/listings.js');
 app.use("/listings", listingRouter);
@@ -86,7 +88,7 @@ const reviewRouter = require('./routes/review.js');
 app.use("/listings/:id/reviews", reviewRouter);
 
 const userRouter = require('./routes/user.js');
-app.use('/listings', userRouter);
+app.use('/users', userRouter);
 
 app.listen(8000, () => {
     console.log('Server is running on port 8000');
