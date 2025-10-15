@@ -79,7 +79,7 @@ app.use((req, res, next) => {
 
 app.get('/', async (req, res) => {
     const allListings = await Listing.find({});
-    res.render("listings/index.js", { allListings });
+    res.render("listings/index.ejs", { allListings });
 });
 
 
