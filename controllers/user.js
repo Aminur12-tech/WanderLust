@@ -15,10 +15,10 @@ module.exports.postSignup = async (req, res) => {
 
         })
         req.flash("success", "Successfully Registered");
-        res.redirect('/login');
+        res.redirect('/users/login');
     } catch (e) {
         req.flash("error", e.message);
-        res.redirect("/signup");
+        res.redirect("/users/signup");
     }
 };
 
