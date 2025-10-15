@@ -77,7 +77,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('i am root');  // renders views/index.ejs
+  res.render('index.ejs');  // renders views/index.ejs
 });
 
 
